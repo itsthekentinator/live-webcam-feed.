@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Webcam Feed</title>
+</head>
+<body>
+  <video id="live-cam" autoplay></video>
+  <script>
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function (stream) {
+        var videoElement = document.getElementById('live-cam');
+        videoElement.srcObject = stream;
+      })
+      .catch(function (error) {
+        console.log("Error accessing camera: " + error);
+      });
+  </script>
+</body>
+</html>
